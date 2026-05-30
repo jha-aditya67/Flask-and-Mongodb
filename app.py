@@ -3,9 +3,12 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/api')
-def get_data():
+@app.route('/')
+def home():
+    return "Flask API is running"
 
+@app.route('/api', strict_slashes=False)
+def get_data():
     with open('data.json', 'r') as file:
         data = json.load(file)
 
